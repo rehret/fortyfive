@@ -1,0 +1,38 @@
+{
+  "name": "fortyfive",
+  "version": "1.0.0",
+  "main": "build/index.js",
+  "repository": "git@github.com:rehret/fortyfive.git",
+  "author": "Randy Ehret <randyehret@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "clean": "n-clean dist/",
+    "prebuild": "yarn clean",
+    "build": "yarn build:server",
+    "build:server": "tsc --rootDir src --outDir dist",
+    "postbuild": "n-copy -s src/server/config -d dist/server/config \"*.json\""
+  },
+  "dependencies": {
+    "bunyan": "^1.8.12",
+    "inversify": "^4.5.1",
+    "koa": "^2.4.1",
+    "koa-bodyparser": "^4.2.0",
+    "koa-multer": "^1.0.2",
+    "koa-router": "^7.3.0",
+    "nconf": "^0.9.1",
+    "reflect-metadata": "^0.1.10",
+    "routing-controllers": "^0.7.6",
+    "shortid": "^2.2.8"
+  },
+  "devDependencies": {
+    "@types/bunyan": "^1.8.3",
+    "@types/koa": "^2.0.40",
+    "@types/koa-router": "^7.0.25",
+    "@types/nconf": "^0.0.35",
+    "@types/shortid": "^0.0.29",
+    "npm-build-tools": "^2.2.5",
+    "tslint": "^5.8.0",
+    "typescript": "^2.6.1",
+    "webpack": "^3.8.1"
+  }
+}

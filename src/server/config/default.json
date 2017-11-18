@@ -1,0 +1,5 @@
+{
+    "PORT": 8000,
+    "LOG_LEVEL": "trace",
+    "LOG_LINENUMBERS": true
+}
