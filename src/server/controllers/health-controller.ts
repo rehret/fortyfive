@@ -1,7 +1,7 @@
-import { Controller, Get, Ctx } from "routing-controllers";
+import { JsonController, Get, Ctx } from "routing-controllers";
 import { IRouterContext } from "koa-router";
 
-@Controller("/health")
+@JsonController("/health")
 export class HealthController {
     @Get()
     public async Health(): Promise<boolean> {

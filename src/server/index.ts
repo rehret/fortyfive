@@ -6,10 +6,13 @@ import { createKoaServer } from "routing-controllers";
 import * as nconf from "nconf";
 import { Log } from "./log";
 
+import Controllers from "./controllers";
+import Middleware from "./middleware";
+
 const app = createKoaServer({
     routePrefix: "/api",
-    controllers: [`${__dirname}/controllers/*.[tj]s`],
-    middlewares: [`${__dirname}/middleware/*.[tj]s`],
+    controllers: Controllers,
+    middlewares: Middleware,
     defaultErrorHandler: false
 });
 

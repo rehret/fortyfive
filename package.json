@@ -8,9 +8,10 @@
   "scripts": {
     "clean": "n-clean dist/",
     "prebuild": "yarn clean",
-    "build": "yarn build:server",
-    "build:server": "tsc --rootDir src --outDir dist",
-    "postbuild": "n-copy -s src/server/config -d dist/server/config \"*.json\""
+    "build": "webpack",
+    "postbuild": "n-copy -s src/server/config -d dist/ \"*.json\"",
+    "develop": "node dist/server.bundle.js | bunyan",
+    "start": "node dist/server.bundle.js"
   },
   "dependencies": {
     "bunyan": "^1.8.12",
@@ -27,12 +28,15 @@
   "devDependencies": {
     "@types/bunyan": "^1.8.3",
     "@types/koa": "^2.0.40",
+    "@types/koa-bodyparser": "^3.0.26",
     "@types/koa-router": "^7.0.25",
     "@types/nconf": "^0.0.35",
     "@types/shortid": "^0.0.29",
+    "awesome-typescript-loader": "^3.4.0",
     "npm-build-tools": "^2.2.5",
     "tslint": "^5.8.0",
     "typescript": "^2.6.1",
-    "webpack": "^3.8.1"
+    "webpack": "^3.8.1",
+    "webpack-node-externals": "^1.6.0"
   }
 }
