@@ -1,0 +1,18 @@
+{
+    "type": "sqlite",
+    "database": "fortyfive.sqlite",
+    "synchronize": true,
+    "logging": false,
+    "entities": [
+        "src/shared/entity/**/*.ts",
+        "src/server/entity/**/*.ts"
+    ],
+    "migrations": [
+        "src/shared/migration/**/*.ts",
+        "src/server/migration/**/*.ts"
+    ],
+    "subscribers": [
+        "src/shared/subscriber/**/*.ts",
+        "src/server/subscriber/**/*.ts"
+    ]
+}

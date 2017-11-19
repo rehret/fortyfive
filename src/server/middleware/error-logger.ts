@@ -9,8 +9,7 @@ export class ErrorLogger implements KoaMiddlewareInterface {
             return await next();
         } catch (err) {
             Log.error({
-                requestId: ctx.state.requestId,
-                req: ctx.request
+                requestId: ctx.state.requestId
             }, "Server error");
 
             ctx.throw(err);
