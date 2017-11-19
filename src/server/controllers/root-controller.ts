@@ -6,7 +6,7 @@ import { Authenticate } from "../auth";
 
 @Controller()
 export class RootController {
-    @UseBefore(Authenticate)
+    @UseBefore(Authenticate("/login"))
     @Get("/")
     public async Get(@Ctx() ctx: IRouterContext): Promise<string> {
         const user = ctx.state.user;

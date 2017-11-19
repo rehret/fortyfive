@@ -1,8 +1,7 @@
 import * as passport from "koa-passport";
 import { Strategy as googleStrategy } from "passport-google-oauth20";
 import * as nconf from "nconf";
-import { IRouterContext } from "koa-router";
-import { KoaMiddlewareInterface } from "routing-controllers";
+import { IRouterContext, IMiddleware } from "koa-router";
 
 passport.use(new googleStrategy({
     clientID: nconf.get("OAUTH_CLIENTID"),
@@ -23,24 +22,18 @@ passport.deserializeUser((user: any, done: (err: any, user: any) => void) => {
     done(null, user);
 });
 
-class Authenticate implements KoaMiddlewareInterface {
-    public async use(ctx: IRouterContext, next: (err?: any) => Promise<any>): Promise<any> {
+function Authenticate(path?: string): IMiddleware {
+    return async function use(ctx: IRouterContext, next: (err?: any) => Promise<any>): Promise<any> {
         if (ctx.isAuthenticated()) {
             return await next();
         } else {
-            ctx.redirect("/login");
+            if (typeof path === "string") {
+                ctx.redirect(path);
+            } else {
+                ctx.throw(401);
+            }
         }
-    }
+    };
 }
 
-class ApiAuthenticate implements KoaMiddlewareInterface {
-    public async use(ctx: IRouterContext, next: (err?: any) => Promise<any>): Promise<any> {
-        if (ctx.isAuthenticated()) {
-            return await next();
-        } else {
-            ctx.throw(401);
-        }
-    }
-}
-
-export { passport, Authenticate, ApiAuthenticate };
+export { passport, Authenticate };
