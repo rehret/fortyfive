@@ -2,8 +2,9 @@ import { JsonController, Get, Post, Ctx, Body, Param } from "routing-controllers
 import { IRouterContext } from "koa-router";
 import { createConnection } from "typeorm";
 import { Album } from "../../shared/entity/album";
+import { Routes } from "../constants/routes";
 
-@JsonController("/api/album")
+@JsonController(Routes.ApiAlbumRoutePrefix)
 export class AlbumController {
     @Get()
     public async GetAlbums(@Ctx() ctx: IRouterContext): Promise<Album[]> {

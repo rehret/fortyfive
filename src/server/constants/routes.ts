@@ -1,5 +1,13 @@
 export const enum Routes {
-    GoogleLoginRoute = "/auth/google/login",
-    GoogleLogoutRoute = "/auth/google/logout",
-    ClientLoginRoute = "/login"
+    Root = "/",
+
+    ClientLoginRoute = "/login",
+
+    GoogleRoutePrefix = "/auth/google",
+    GoogleLoginRoute = "/login",
+    GoogleLogoutRoute = "/logout",
+
+    ApiUserRoutePrefix = "/api/user",
+
+    ApiAlbumRoutePrefix = "/api/album"
 }

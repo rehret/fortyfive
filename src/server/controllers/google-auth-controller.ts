@@ -4,18 +4,18 @@ import { passport } from "../auth";
 import { Routes } from "../constants/routes";
 import { Auth } from "../constants/auth";
 
-@Controller("/auth/google")
+@Controller(Routes.GoogleRoutePrefix)
 export class GoogleAuthController {
-    @Get("/")
+    @Get(Routes.Root)
     @UseBefore(passport.authenticate(Auth.Strategy, {
-        successRedirect: "/",
+        successRedirect: Routes.Root,
         failureRedirect: Routes.ClientLoginRoute
     }))
     public async Auth(): Promise<void> {
         return;
     }
 
-    @Get("/login")
+    @Get(Routes.GoogleLoginRoute)
     @UseBefore(passport.authenticate(Auth.Strategy, {
         failureRedirect: Routes.ClientLoginRoute,
         scope: Auth.Scope,
@@ -25,7 +25,7 @@ export class GoogleAuthController {
         return;
     }
 
-    @Get("/logout")
+    @Get(Routes.GoogleLogoutRoute)
     @Redirect(Routes.ClientLoginRoute)
     public async Logout(@Ctx() ctx: IRouterContext): Promise<void> {
         ctx.logout();
