@@ -1,25 +1,23 @@
 import { Controller, Get, Ctx, UseBefore } from "routing-controllers";
 import { Log } from "../log";
 import { IRouterContext } from "koa-router";
-import * as nconf from "nconf";
 import { Authenticate } from "../auth";
+import { Routes } from "../constants/routes";
 
 @Controller()
 export class RootController {
-    @UseBefore(Authenticate("/login"))
+    @UseBefore(Authenticate(Routes.LoginRoute))
     @Get("/")
     public async Get(@Ctx() ctx: IRouterContext): Promise<string> {
         const user = ctx.state.user;
         Log.debug(user);
-
-        const logoutRoute = nconf.get("PASSPORT_LOGOUT_ROUTE");
 
         return `
         <html>
             <body>
                 <h1>Hello, ${user.displayName}!</h1>
                 <div>
-                    <a href='${logoutRoute}'>
+                    <a href='${Routes.LogoutRoute}'>
                         Logout
                     </a>
                 </div>
@@ -33,8 +31,6 @@ export class RootController {
             ctx.redirect("/");
         }
 
-        const loginRoute = nconf.get("PASSPORT_LOGIN_ROUTE");
-
-        return `<html><body><a href='${loginRoute}'>Log in with Google</a></body></html>`;
+        return `<html><body><a href='${Routes.LoginRoute}'>Log in with Google</a></body></html>`;
     }
 }

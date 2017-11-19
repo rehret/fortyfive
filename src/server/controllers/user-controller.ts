@@ -1,8 +1,8 @@
-import { Controller, UseBefore, Get, Ctx } from "routing-controllers";
+import { JsonController, UseBefore, Get, Ctx } from "routing-controllers";
 import { Authenticate } from "../auth";
 import { IRouterContext } from "koa-router";
 
-@Controller("/api/user")
+@JsonController("/api/user")
 @UseBefore(Authenticate())
 export class UserController {
     @Get()

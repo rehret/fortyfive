@@ -22,13 +22,13 @@ passport.deserializeUser((user: any, done: (err: any, user: any) => void) => {
     done(null, user);
 });
 
-function Authenticate(path?: string): IMiddleware {
+function Authenticate(unauthorizedRedirectPath?: string): IMiddleware {
     return async function use(ctx: IRouterContext, next: (err?: any) => Promise<any>): Promise<any> {
         if (ctx.isAuthenticated()) {
             return await next();
         } else {
-            if (typeof path === "string") {
-                ctx.redirect(path);
+            if (typeof unauthorizedRedirectPath === "string") {
+                ctx.redirect(unauthorizedRedirectPath);
             } else {
                 ctx.throw(401);
             }

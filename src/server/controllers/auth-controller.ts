@@ -1,26 +1,24 @@
 import { Controller, Get, UseBefore, Ctx, Redirect } from "routing-controllers";
 import { IRouterContext } from "koa-router";
-import * as nconf from "nconf";
 import { passport } from "../auth";
-
-const strategy = nconf.get("PASSPORT_STRATEGY");
-const scope = nconf.get("PASSPORT_SCOPE");
+import { Routes } from "../constants/routes";
+import { Auth } from "../constants/auth";
 
 @Controller("/auth")
 export class AuthController {
     @Get("/")
-    @UseBefore(passport.authenticate(strategy, {
+    @UseBefore(passport.authenticate(Auth.Strategy, {
         successRedirect: "/",
-        failureRedirect: nconf.get("LOGIN_ROUTE")
+        failureRedirect: Routes.ClientLoginRoute
     }))
     public async Auth(): Promise<void> {
         return;
     }
 
     @Get("/login")
-    @UseBefore(passport.authenticate(strategy, {
-        failureRedirect: nconf.get("LOGIN_ROUTE"),
-        scope,
+    @UseBefore(passport.authenticate(Auth.Strategy, {
+        failureRedirect: Routes.ClientLoginRoute,
+        scope: Auth.Scope,
         prompt: "select_account"
     }))
     public async Login(): Promise<void> {
@@ -28,7 +26,7 @@ export class AuthController {
     }
 
     @Get("/logout")
-    @Redirect(nconf.get("CLIENT_LOGIN_ROUTE"))
+    @Redirect(Routes.ClientLoginRoute)
     public async Logout(@Ctx() ctx: IRouterContext): Promise<void> {
         ctx.logout();
         ctx.session = null;
