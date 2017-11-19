@@ -1,0 +1,6 @@
+{
+    "SESSION_KEY": "",
+    "OAUTH_CLIENTID": "",
+    "OAUTH_CLIENTSECRET": "",
+    "OAUTH_CALLBACKURL": "http://localhost:8000/auth"
+}

@@ -3,7 +3,7 @@ import { IRouterContext } from "koa-router";
 import { createConnection } from "typeorm";
 import { Album } from "../../shared/entity/album";
 
-@JsonController("/album")
+@JsonController("/api/album")
 export class AlbumController {
     @Get()
     public async GetAlbums(@Ctx() ctx: IRouterContext): Promise<Album[]> {

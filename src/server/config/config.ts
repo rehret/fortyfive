@@ -7,4 +7,11 @@ nconf
     .env()
     .file("environmentConfig", `${__dirname}/${env}.json`)
     .file("defaultConfig", `${__dirname}/default.json`)
-    .required(["PORT"]);
+    .use("embeddedConfig", {
+        type: "literal",
+        "PASSPORT_STRATEGY": "google",
+        "PASSPORT_SCOPE": "https://www.googleapis.com/auth/plus.me",
+        "LOGIN_ROUTE": "/auth/login",
+        "LOGOUT_ROUTE": "/auth/logout"
+    })
+    .required(["PORT", "SESSION_KEY", "OAUTH_CLIENTID", "OAUTH_CLIENTSECRET", "OAUTH_CALLBACKURL"]);
