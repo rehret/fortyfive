@@ -33,4 +33,14 @@ class Authenticate implements KoaMiddlewareInterface {
     }
 }
 
-export { passport, Authenticate };
+class ApiAuthenticate implements KoaMiddlewareInterface {
+    public async use(ctx: IRouterContext, next: (err?: any) => Promise<any>): Promise<any> {
+        if (ctx.isAuthenticated()) {
+            return await next();
+        } else {
+            ctx.throw(401);
+        }
+    }
+}
+
+export { passport, Authenticate, ApiAuthenticate };

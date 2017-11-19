@@ -28,7 +28,7 @@ export class AuthController {
     }
 
     @Get("/logout")
-    @Redirect("/login")
+    @Redirect(nconf.get("CLIENT_LOGIN_ROUTE"))
     public async Logout(@Ctx() ctx: IRouterContext): Promise<void> {
         ctx.logout();
         ctx.session = null;

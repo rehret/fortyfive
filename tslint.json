@@ -8,6 +8,7 @@
         "member-ordering": false,
         "ordered-imports": false,
         "trailing-comma": false,
-        "object-literal-key-quotes": false
+        "object-literal-key-quotes": false,
+        "max-classes-per-file": false
     }
 }
