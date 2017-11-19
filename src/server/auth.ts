@@ -6,7 +6,7 @@ import { IRouterContext, IMiddleware } from "koa-router";
 passport.use(new googleStrategy({
     clientID: nconf.get("OAUTH_CLIENTID"),
     clientSecret: nconf.get("OAUTH_CLIENTSECRET"),
-    callbackURL: nconf.get("OAUTH_CALLBACKURL")
+    callbackURL: `${nconf.get("OAUTH_CALLBACKBASEURL")}/auth/google`
 }, (accessToken: any, refreshToken: any, profile: any, cb: (err?: any, user?: any) => void) => {
     cb(null, {
         id: profile.id,

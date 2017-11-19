@@ -1,5 +1,5 @@
 export const enum Routes {
-    LoginRoute = "/auth/login",
-    LogoutRoute = "/auth/logout",
+    GoogleLoginRoute = "/auth/google/login",
+    GoogleLogoutRoute = "/auth/google/logout",
     ClientLoginRoute = "/login"
 }

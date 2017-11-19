@@ -4,8 +4,8 @@ import { passport } from "../auth";
 import { Routes } from "../constants/routes";
 import { Auth } from "../constants/auth";
 
-@Controller("/auth")
-export class AuthController {
+@Controller("/auth/google")
+export class GoogleAuthController {
     @Get("/")
     @UseBefore(passport.authenticate(Auth.Strategy, {
         successRedirect: "/",

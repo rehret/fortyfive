@@ -6,7 +6,7 @@ import { Routes } from "../constants/routes";
 
 @Controller()
 export class RootController {
-    @UseBefore(Authenticate(Routes.LoginRoute))
+    @UseBefore(Authenticate(Routes.ClientLoginRoute))
     @Get("/")
     public async Get(@Ctx() ctx: IRouterContext): Promise<string> {
         const user = ctx.state.user;
@@ -17,7 +17,7 @@ export class RootController {
             <body>
                 <h1>Hello, ${user.displayName}!</h1>
                 <div>
-                    <a href='${Routes.LogoutRoute}'>
+                    <a href='${Routes.GoogleLogoutRoute}'>
                         Logout
                     </a>
                 </div>
@@ -31,6 +31,13 @@ export class RootController {
             ctx.redirect("/");
         }
 
-        return `<html><body><a href='${Routes.LoginRoute}'>Log in with Google</a></body></html>`;
+        return `
+        <html>
+            <body>
+                <a href='${Routes.GoogleLoginRoute}'>
+                    Log in with Google
+                </a>
+            </body>
+        </html>`;
     }
 }
