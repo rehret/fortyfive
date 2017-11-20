@@ -1,3 +1,9 @@
+# yarn
 node_modules/
+yarn-error.log
+
+# build
 dist/
+
+# data
 fortyfive.sqlite
