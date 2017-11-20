@@ -9,6 +9,8 @@
         "ordered-imports": false,
         "trailing-comma": false,
         "object-literal-key-quotes": false,
-        "max-classes-per-file": false
+        "max-classes-per-file": false,
+        "no-string-literal": false,
+        "no-var-requires": false
     }
 }
