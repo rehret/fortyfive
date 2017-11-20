@@ -1,20 +1,10 @@
-import { Component, ViewEncapsulation } from "@angular/core";
+import { Component } from "@angular/core";
 
 @Component({
     selector: "my-app",
     templateUrl: "./app.component.html",
-    styleUrls: ["app.component.scss"],
-    encapsulation: ViewEncapsulation.None
+    styleUrls: ["app.component.scss"]
 })
 export class AppComponent {
-    public title = "Grocery List";
-    private signedIn: boolean;
-
-    constructor() {
-        this.signedIn = false;
-    }
-
-    public isSignedIn(): boolean {
-        return this.signedIn;
-    }
+    public title = "Hello, World!";
 }

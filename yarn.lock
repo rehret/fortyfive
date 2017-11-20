@@ -20,12 +20,6 @@
   dependencies:
     tslib "^1.7.1"
 
-"@angular/forms@^5.0.2":
-  version "5.0.2"
-  resolved "https://registry.yarnpkg.com/@angular/forms/-/forms-5.0.2.tgz#f4c6ff25d51790f632762eb1c50774d17c8cf465"
-  dependencies:
-    tslib "^1.7.1"
-
 "@angular/http@^5.0.2":
   version "5.0.2"
   resolved "https://registry.yarnpkg.com/@angular/http/-/http-5.0.2.tgz#cb3af1521e14f040aa8ca1554e28f8df9b56fde8"
@@ -233,6 +227,12 @@ alphanum-sort@^1.0.1, alphanum-sort@^1.0.2:
 amdefine@>=0.0.4:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/amdefine/-/amdefine-1.0.1.tgz#4a5282ac164729e93619bcfd3ad151f817ce91f5"
+
+angular2-template-loader@^0.6.2:
+  version "0.6.2"
+  resolved "https://registry.yarnpkg.com/angular2-template-loader/-/angular2-template-loader-0.6.2.tgz#c0d44e90fff0fac95e8b23f043acda7fd1c51d7c"
+  dependencies:
+    loader-utils "^0.2.15"
 
 ansi-regex@^2.0.0:
   version "2.1.1"
@@ -1068,12 +1068,6 @@ css-selector-tokenizer@^0.7.0:
     fastparse "^1.1.1"
     regexpu-core "^1.0.0"
 
-css-to-string-loader@^0.1.3:
-  version "0.1.3"
-  resolved "https://registry.yarnpkg.com/css-to-string-loader/-/css-to-string-loader-0.1.3.tgz#c937175f2ec783969aefe14a4fba055f7b4f9562"
-  dependencies:
-    loader-utils "^0.2.15"
-
 css-what@2.1:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/css-what/-/css-what-2.1.0.tgz#9467d032c38cfaefb9f2d79501253062f87fa1bd"
@@ -1571,13 +1565,6 @@ fastparse@^1.1.1:
 figlet@^1.1.1:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/figlet/-/figlet-1.2.0.tgz#6c46537378fab649146b5a6143dda019b430b410"
-
-file-loader@^1.1.5:
-  version "1.1.5"
-  resolved "https://registry.yarnpkg.com/file-loader/-/file-loader-1.1.5.tgz#91c25b6b6fbe56dae99f10a425fd64933b5c9daa"
-  dependencies:
-    loader-utils "^1.0.2"
-    schema-utils "^0.3.0"
 
 filename-regex@^2.0.0:
   version "2.0.1"
@@ -2748,10 +2735,6 @@ mime-types@^2.0.7, mime-types@^2.1.12, mime-types@~2.1.15, mime-types@~2.1.16, m
   dependencies:
     mime-db "~1.30.0"
 
-mime@^1.4.1:
-  version "1.4.1"
-  resolved "https://registry.yarnpkg.com/mime/-/mime-1.4.1.tgz#121f9ebc49e3766f311a76e1fa1c8003c4b03aa6"
-
 mimic-fn@^1.0.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/mimic-fn/-/mimic-fn-1.1.0.tgz#e667783d92e89dbd342818b5230b9d62a672ad18"
@@ -3679,10 +3662,6 @@ raw-body@^2.2.0:
     http-errors "1.6.2"
     iconv-lite "0.4.19"
     unpipe "1.0.0"
-
-raw-loader@^0.5.1:
-  version "0.5.1"
-  resolved "https://registry.yarnpkg.com/raw-loader/-/raw-loader-0.5.1.tgz#0c3d0beaed8a01c966d9787bf778281252a979aa"
 
 rc@^1.1.7:
   version "1.2.2"
@@ -4685,14 +4664,6 @@ urijs@^1.19.0:
 urix@^0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/urix/-/urix-0.1.0.tgz#da937f7a62e21fec1fd18d49b35c2935067a6c72"
-
-url-loader@^0.6.2:
-  version "0.6.2"
-  resolved "https://registry.yarnpkg.com/url-loader/-/url-loader-0.6.2.tgz#a007a7109620e9d988d14bce677a1decb9a993f7"
-  dependencies:
-    loader-utils "^1.0.2"
-    mime "^1.4.1"
-    schema-utils "^0.3.0"
 
 url@^0.11.0:
   version "0.11.0"
